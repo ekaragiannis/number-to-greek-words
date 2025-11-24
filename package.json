@@ -1,38 +1,45 @@
 {
-	"name": "number-to-greek-words",
-	"version": "1.0.0",
-	"description": "Convert numbers to Greek words",
-	"main": "dist/index.js",
-	"types": "dist/index.d.ts",
-	"scripts": {
-		"build": "tsc",
-		"prepare": "npm run build",
-		"test": "vitest run",
-		"test:watch": "vitest",
-		"test:ui": "vitest --ui",
-		"test:coverage": "vitest run --coverage",
-		"lint": "biome lint .",
-		"format": "biome format --write .",
-		"check": "biome check --write .",
-		"ci": "biome ci ."
-	},
-	"files": [
-		"dist"
-	],
-	"keywords": [
-		"greek",
-		"numbers",
-		"words",
-		"converter",
-		"typescript"
-	],
-	"author": "",
-	"license": "ISC",
-	"devDependencies": {
-		"@biomejs/biome": "^2.3.7",
-		"@types/node": "^24.10.1",
-		"@vitest/ui": "^4.0.13",
-		"typescript": "^5.9.3",
-		"vitest": "^4.0.13"
-	}
+  "name": "number-to-greek-words",
+  "version": "1.0.0",
+  "description": "Convert numbers to Greek words",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "homepage": "https://github.com/ekaragiannis/number-to-greek-words",
+  "bugs": {
+    "url": "https://github.com/ekaragiannis/number-to-greek-words/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ekaragiannis/number-to-greek-words.git"
+  },
+  "scripts": {
+    "build": "tsc",
+    "prepare": "npm run build",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:ui": "vitest --ui",
+    "test:coverage": "vitest run --coverage",
+    "lint": "biome lint .",
+    "format": "biome format --write .",
+    "check": "biome check --write .",
+    "ci": "npm run build && npm run check && npm run test"
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "greek",
+    "numbers",
+    "words",
+    "converter"
+  ],
+  "author": "Efthymios Karagiannis <efthymioskaragiannis@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@biomejs/biome": "^2.3.7",
+    "@types/node": "^24.10.1",
+    "@vitest/ui": "^4.0.13",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.13"
+  }
 }

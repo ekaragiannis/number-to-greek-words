@@ -3,25 +3,21 @@ import { hundreds, ones, pluralHundreds, pluralOnes, pluralTeens, teens, tens } 
 function convertBelowThousand(num: number, plural: boolean = false): string {
   if (num === 0) return "";
 
-  // Handle 1-9
   if (num < 10) {
     return plural ? pluralOnes[num] : ones[num];
   }
 
-  // Handle 10-19
   if (num < 20) {
     return plural ? pluralTeens[num - 10] : teens[num - 10];
   }
 
-  // Handle 20-99
   if (num < 100) {
     const tensDigit = Math.floor(num / 10);
     const onesDigit = num % 10;
-    const onesWord = onesDigit === 0 ? "" : (plural ? pluralOnes[onesDigit] : ones[onesDigit]);
+    const onesWord = onesDigit === 0 ? "" : plural ? pluralOnes[onesDigit] : ones[onesDigit];
     return onesWord ? `${tens[tensDigit]} ${onesWord}` : tens[tensDigit];
   }
 
-  // Handle 100-999
   const hundredsDigit = Math.floor(num / 100);
   const remainder = num % 100;
 
@@ -31,7 +27,12 @@ function convertBelowThousand(num: number, plural: boolean = false): string {
   return remainderWord ? `${hundredsWord} ${remainderWord}` : hundredsWord;
 }
 
-function convertScale(num: number, singular: string, plural: string, usePlural: boolean = false): string {
+function convertScale(
+  num: number,
+  singular: string,
+  plural: string,
+  usePlural: boolean = false,
+): string {
   if (num === 0) {
     return "";
   }
@@ -45,6 +46,13 @@ function convertScale(num: number, singular: string, plural: string, usePlural: 
   return `${word} ${plural}`;
 }
 
+/**
+ * Converts a number to its Greek text representation.
+ *
+ * @param num - The number to convert. Accepts both number and string types.
+ *              Must be an integer value.
+ * @returns The Greek text representation of the number.
+ */
 export function numberToGreekWords(num: string | number): string {
   if (Number.isNaN(num)) {
     return "Invalid input: Non arithmetic value";
